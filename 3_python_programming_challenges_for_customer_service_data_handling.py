@@ -32,7 +32,6 @@ just the status of the ticket and then reflect this through a print statement. I
 
 def display_tickets(ticket_dict, status_filter):
     status_filter = status_filter.lower()
-    #ticket_dict_copy = copy.deepcopy(ticket_dict)
     if status_filter.lower() == "all tickets":
         print("Service Tickets:")
         for ticket, ticket_details in ticket_dict.items():
@@ -49,6 +48,19 @@ def display_tickets(ticket_dict, status_filter):
                 print(f"Ticket ID: {ticket}\nCustomer: {ticket_details["Customer"]}\nIssue: {ticket_details["Issue"]}\nStatus: {ticket_details["Status"]}")
     else:
         print("Incorrect status filter input. Please use a specified option.")
+
+def display_tickets2(ticket_dict, status_filter):
+    status_filter = status_filter.lower()
+    for ticket, ticket_details in ticket_dict.items():
+        if ticket_dict[ticket]["Status"] in status_filter:
+            print(f"Ticket ID: {ticket}\nCustomer: {ticket_details["Customer"]}\nIssue: {ticket_details["Issue"]}\nStatus: {ticket_details["Status"]}")
+        else:
+            print(f"Ticket ID: {ticket}\nCustomer: {ticket_details["Customer"]}\nIssue: {ticket_details["Issue"]}\nStatus: {ticket_details["Status"]}")
+'''
+Refactored during tutoring with Daniel
+'''
+
+
 '''
 This function works by showing either all tickets, open tickets, or closed tickets by using an if/elif/elif/else block to compare the filter entered
 to each of those three options. For the all block no further comparison is needed and we can just loop through all of the keys and values for all of the tickets.

@@ -36,11 +36,30 @@ def remove_item(menu, category, item):
     else:
         print("Category or dish has not been added and thus cannot be removed.")
 
+'''
+Preferred solution
+'''
+
+def remove_items2(menu, category, item):
+    remove_item = ""
+    if category in menu:
+        for dish in menu[category].keys():
+            if dish == item:
+                remove_item = dish
+        menu[category].pop(remove_item)
+        print(f"{remove_item} was removed from the menu.")
+
+'''
+Redid this Daniel during tutoring for practice with keys method.
+'''
+
 new_category(restaurant_menu, "Beverages")
 new_item(restaurant_menu, "Beverages", "Wine", 9.99)
 new_item(restaurant_menu, "Beverages", "Coca-Cola", 2.99)
 price_update(restaurant_menu, "Main Course", "Steak", 17.99)
 remove_item(restaurant_menu, "Starters", "Bruschetta")
+remove_items2(restaurant_menu, "Main Course", "Steak")
+
 '''
 To solve this prolem I created four functions. One function was creating a new category that checked if a category wasn't already in 
 the menu and if it wasn't created that category with an empty dictionary as a value. The second function was to add new items.
